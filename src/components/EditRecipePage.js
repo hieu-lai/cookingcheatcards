@@ -1,8 +1,15 @@
+/*
+ * Renders the form to edit recipe.
+*/
+
 import React from 'react';
+import RecipeForm from './RecipeForm';
 
 const EditRecipePage = () => (
   <div>
-    This is edit recipe page.
+    <h1>Edit recipe</h1>
+    <RecipeForm />
+    <button>Delete recipe</button>
   </div>
 );
 

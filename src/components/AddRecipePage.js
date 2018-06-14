@@ -1,8 +1,10 @@
 import React from 'react';
+import RecipeForm from './RecipeForm';
 
 const AddRecipePage = () => (
   <div>
-    This is add recipe page.
+    <h1>Add recipe</h1>
+    <RecipeForm />
   </div>
 );
 

@@ -3,14 +3,14 @@
 */
 
 import React from 'react';
-import RecipeSummary from './RecipeSummary';
-import RecipeFilters from './RecipeFilters';
+import RecipesSummary from './RecipesSummary';
+import RecipesFilters from './RecipesFilters';
 import RecipesList from './RecipesList';
 
 const DashboardPage = () => (
   <div>
-    <RecipeSummary />
-    <RecipeFilters />
+    <RecipesSummary />
+    <RecipesFilters />
     <RecipesList />
   </div>
 );

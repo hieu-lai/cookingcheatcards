@@ -4,7 +4,7 @@
 
 import React from 'react';
 
-const RecipeFilters = () => (
+const RecipesFilters = () => (
   <div>
     <input />
     <select>
@@ -17,4 +17,4 @@ const RecipeFilters = () => (
 
 );
 
-export default RecipeFilters;
+export default RecipesFilters;
