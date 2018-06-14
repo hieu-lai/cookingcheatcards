@@ -14,7 +14,7 @@ export const sortByAlphabet = () => ({
 });
 
 // SET_TEXT_FILTER
-export const setTextFilter = (tect = '') => ({
+export const setTextFilter = (text = '') => ({
   type: 'SET_TEXT_FILTER',
   text
 });
