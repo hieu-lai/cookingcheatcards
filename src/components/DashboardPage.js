@@ -1,8 +1,17 @@
+/*
+ * Renders the dashboard
+*/
+
 import React from 'react';
+import RecipeSummary from './RecipeSummary';
+import RecipeFilters from './RecipeFilters';
+import RecipesList from './RecipesList';
 
 const DashboardPage = () => (
   <div>
-    Dashboard page content
+    <RecipeSummary />
+    <RecipeFilters />
+    <RecipesList />
   </div>
 );
 
