@@ -28,6 +28,7 @@ export const startSetRecipes = () => {
 // ADD_RECIPE
 export const addRecipe = (
   {
+    title = '',
     prepTime = 0,
     cookTime = 0,
     serves = 0,
@@ -38,6 +39,7 @@ export const addRecipe = (
   type: 'ADD_RECIPE',
   recipe: {
     id: uuid(),
+    title,
     prepTime,
     cookTime,
     serves,

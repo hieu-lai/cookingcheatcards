@@ -1,9 +1,20 @@
-import React from 'react';
+/*
+ * Renders the summary of recipes.
+*/
 
-const RecipesSummary = () => (
+import React from 'react';
+import { connect } from 'react-redux';
+import applyFilters from '../selectors/recipes';
+
+const RecipesSummary = ({ totalRecipes, noOfFilteredRecipes }) => (
   <div>
-    <h1>Displaying 12 of 20 recipies.</h1>
+    <h1>Displaying {noOfFilteredRecipes} of {totalRecipes} recipies.</h1>
   </div>
 );
 
-export default RecipesSummary;
+const mapStateToProps = (state) => ({
+  totalRecipes: state.recipes.length,
+  noOfFilteredRecipes: applyFilters(state.recipes, state.filters).length
+});
+
+export default connect(mapStateToProps)(RecipesSummary);
