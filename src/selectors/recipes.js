@@ -1,10 +1,10 @@
 // Get filtered recipes
 const getVisibleRecipes = (recipes, { text, sortBy }) => {
   return recipes.filter((recipe) => {
-    const textMatchIngredients = recipe.ingredients.toLowerCase().includes(text.toLowerCase());
+    const textMatchIngredients = recipe.ingredients.toString().toLowerCase().includes(text.toLowerCase());
     const textMatchTitle = recipe.title.toLowerCase().includes(text.toLowerCase());
     
-    return textMatchIngredients || textMatchTitle; 
+    return textMatchTitle || textMatchIngredients; 
   }).sort((a, b) => {
     if (sortBy === 'alphabetic') {
       return a.title < b.title ? -1 : 1;
