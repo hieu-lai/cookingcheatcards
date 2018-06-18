@@ -11,7 +11,9 @@ import RecipeDisplayCard from './RecipeDisplayCard';
 
 const RecipesList = (props) => (
   <div>
-    {props.recipes.map((recipe) => <RecipeDisplayCard key={uuid()} recipe={recipe}/>)}
+    {props.recipes.map((recipe) => (
+      <RecipeDisplayCard key={uuid()} recipe={recipe}/>
+    ))}
     <Link to="/create">Add recipe</Link>
     {console.log(props.recipes)}
   </div>

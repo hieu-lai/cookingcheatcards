@@ -18,7 +18,7 @@ const recipesReducer = (state = recipesReducerDefaultState, action) => {
           return {
             ...recipe,
             ...action.updates
-          };
+          }
         } else {
           return recipe;
         }

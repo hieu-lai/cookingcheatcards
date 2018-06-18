@@ -3,6 +3,7 @@
 */
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const RecipeDisplayCard = ({ recipe }) => (
   <div>
@@ -14,7 +15,7 @@ const RecipeDisplayCard = ({ recipe }) => (
     <h5>Serves</h5>
     {recipe.serves}
     <button>View</button>
-    <button>Edit</button>
+    <Link to={`/edit/${recipe.id}`}>Edit</Link>
   </div>
 );
 

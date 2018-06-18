@@ -6,14 +6,14 @@ import React from 'react';
 import IngredientsListForm from './IngredientsListForm';
 import MethodListForm from './MethodListForm';
 
-class RecipeForm extends React.Component {
+class RecipeForm extends React.Component {  
   state = {
-    title: '',
-    prepTime: 0,
-    cookTime: 0,
-    serves: 0,
-    ingredients: [],
-    method: []
+    title: this.props.recipe ? this.props.recipe.title : '',
+    prepTime: this.props.recipe ? this.props.recipe.prepTime : '',
+    cookTime: this.props.recipe ? this.props.recipe.cookTime : '',
+    serves: this.props.recipe ? this.props.recipe.serves : '',
+    ingredients: this.props.recipe ? this.props.recipe.ingredients : [],
+    method: this.props.recipe ? this.props.recipe.method : []
   };
 
   onTitleChange = (e) => {
