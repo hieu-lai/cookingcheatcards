@@ -53,6 +53,18 @@ class RecipeForm extends React.Component {
       ingredients: prevState.ingredients.filter((ingredient) => removeIngredient !== ingredient)
     }));
   };
+
+  onMethodAdd = (data) => {
+    this.setState((prevState) => ({ 
+      method: prevState.method.concat([data])
+    }));
+  };
+
+  onMethodToRemove = (methodToRemove) => {
+    this.setState((prevState) => ({
+      method: prevState.method.filter((step) => methodToRemove !== step)
+    }));
+  };
   
   onSubmit = (e) => {
     e.preventDefault();
@@ -96,7 +108,11 @@ class RecipeForm extends React.Component {
             onChange={this.onIngredientChange}
             onIngredientRemove={this.onIngredientRemove}
           />
-          <MethodListForm />
+          <MethodListForm 
+            method={this.state.method}
+            onMethodAdd={this.onMethodAdd}
+            onMethodToRemove={this.onMethodToRemove}
+          />
           <button>Save recipe</button>
         </form>
       </div>

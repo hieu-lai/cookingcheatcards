@@ -25,7 +25,7 @@ class IngredientsListForm extends React.Component {
         <ListInputs onChange={this.props.onChange}/>
       </div>
     );
-  };   
+  };
 };
 
 export default IngredientsListForm;

@@ -1,15 +1,31 @@
 /*
- * Renders method list inputs.
-*/
+ * Renders method list inputs
+*/ 
 
 import React from 'react';
-import ListInputs from './ListInputs';
+import uuid from 'uuid';
+import ListInputs from './ListInputs'; 
+import Method from './Method';
 
-const MethodListForm = () => (
-  <div>
-    <h3>Method</h3>
-    <ListInputs />
-  </div>
-);
+
+class MethodListForm extends React.Component {
+  render() {
+    return (
+      <div>
+        <h3>Method</h3>
+        {
+          this.props.method.map((step) => (
+            <Method 
+              key={uuid()}
+              method={step} 
+              onMethodToRemove={this.props.onMethodToRemove}
+            />
+          ))
+        }
+        <ListInputs onChange={this.props.onMethodAdd}/>
+      </div>
+    );
+  };
+};
 
 export default MethodListForm;
