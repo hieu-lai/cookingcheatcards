@@ -26,27 +26,31 @@ export const startSetRecipes = () => {
 };
 
 // ADD_RECIPE
-export const addRecipe = (
-  {
-    title = '',
-    prepTime = 0,
-    cookTime = 0,
-    serves = 0,
-    ingredients = {},
-    method = {}
-  } = {} 
-) => ({
+export const addRecipe = (recipe) => ({
   type: 'ADD_RECIPE',
-  recipe: {
-    id: uuid(),
-    title,
-    prepTime,
-    cookTime,
-    serves,
-    ingredients,
-    method
-  }
+  recipe
 });
+
+export const startAddRecipe = (recipeData) => {
+  return (dispatch) => {
+    const {
+      title = '',
+      prepTime = 0,
+      cookTime = 0,
+      serves = 0,
+      ingredients = [],
+      method = []
+    } = recipeData;
+    const recipe = { title, prepTime, cookTime, serves, ingredients, method };
+
+    return database.ref('recipes').push(recipe).then((ref) => {
+      dispatch(addRecipe({
+        id: ref.key,
+        ...recipe
+      }));
+    });
+  };
+};
 
 // REMOVE_RECIPE
 export const removeRecipe = ({ id } = {}) => ({
@@ -54,9 +58,25 @@ export const removeRecipe = ({ id } = {}) => ({
   id
 });
 
+export const startRemoveRecipe = ({ id } = {}) => {
+  return (dispatch) => {
+    return database.ref(`recipes/${id}`).remove().then(() => {
+      dispatch(removeRecipe({ id }));
+    });
+  };
+};
+
 // EDIT_RECIPE
 export const editRecipe = (id, updates) => ({
   type: 'EDIT_RECIPE',
   id,
   updates
 });
+
+export const startEditRecipe = (id, updates) => {
+  return (dispatch) => {
+    return database.ref(`recipes/${id}`).update(updates).then(() => {
+      dispatch(editRecipe(id, updates));
+    });
+  };
+};

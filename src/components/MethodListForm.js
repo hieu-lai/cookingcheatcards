@@ -13,6 +13,7 @@ class MethodListForm extends React.Component {
     return (
       <div>
         <h3>Method</h3>
+        {this.props.hasMethod === 0 && <p>Please provide at least one step.</p>}
         {
           this.props.method.map((step) => (
             <Method 

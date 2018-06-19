@@ -5,11 +5,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import RecipeForm from './RecipeForm';
-import { addRecipe } from '../actions/recipes';
+import { startAddRecipe } from '../actions/recipes';
 
 class AddRecipePage extends React.Component {
   onSubmit = (recipe) => {
-    this.props.addRecipe(recipe);
+    this.props.startAddRecipe(recipe);
     this.props.history.push('/');
   };
   render() {
@@ -23,7 +23,7 @@ class AddRecipePage extends React.Component {
 };
 
 const mapDispatchToProps = (dispatach) => ({
-  addRecipe: (recipe) => dispatach(addRecipe(recipe))
+  startAddRecipe: (recipe) => dispatach(startAddRecipe(recipe))
 });
 
 export default connect(undefined, mapDispatchToProps)(AddRecipePage);

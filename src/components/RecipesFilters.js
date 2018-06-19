@@ -27,6 +27,7 @@ class RecipesFilters extends React.Component {
       <div>
         <input 
           type="text"
+          placeholder="Search recipe or ingredient"
           value={this.props.filters.text}
           onChange={this.onTextChange}
         />

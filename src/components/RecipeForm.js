@@ -69,15 +69,17 @@ class RecipeForm extends React.Component {
   onSubmit = (e) => {
     e.preventDefault();
     
-    this.props.onSubmit({
-      title: this.state.title,
-      prepTime: this.state.prepTime,
-      cookTime: this.state.cookTime,
-      serves: this.state.serves,
-      ingredients: this.state.ingredients,
-      method: this.state.method
-    });
-  }
+    if (this.state.ingredients.length !== 0 && this.state.method.length !== 0) {
+      this.props.onSubmit({
+        title: this.state.title,
+        prepTime: this.state.prepTime,
+        cookTime: this.state.cookTime,
+        serves: this.state.serves,
+        ingredients: this.state.ingredients,
+        method: this.state.method
+      });
+    }
+  };
 
   render() {
     return (
@@ -103,18 +105,21 @@ class RecipeForm extends React.Component {
             value={this.state.serves}
             onChange={this.onServesChange}
           />
+        </form>  
           <IngredientsListForm 
             ingredients={this.state.ingredients}
+            hasIngredients={this.state.ingredients.length}
             onChange={this.onIngredientChange}
             onIngredientRemove={this.onIngredientRemove}
           />
           <MethodListForm 
             method={this.state.method}
+            hasMethod={this.state.method.length}
             onMethodAdd={this.onMethodAdd}
             onMethodToRemove={this.onMethodToRemove}
           />
-          <button>Save recipe</button>
-        </form>
+          <button onClick={this.onSubmit}>Save recipe</button>
+        
       </div>
     );
   };

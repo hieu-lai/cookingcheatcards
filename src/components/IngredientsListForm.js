@@ -13,6 +13,7 @@ class IngredientsListForm extends React.Component {
     return (
       <div>
         <h3>Ingredients</h3>
+        {this.props.hasIngredients === 0 && <p>Please provide at least one ingredient.</p>}
         {
           this.props.ingredients.map((ingredient) => (
             <Ingredient 
