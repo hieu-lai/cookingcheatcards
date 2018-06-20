@@ -9,7 +9,8 @@ export const setRecipes = (recipes) => ({
 
 export const startSetRecipes = () => {
   return (dispatch, getState) => {
-    return database.ref('recipes')
+    const uid = getState().auth.uid;
+    return database.ref(`users/${uid}/recipes`)
       .once('value')
       .then((snapshot) => {
         const recipes = [];
@@ -32,7 +33,8 @@ export const addRecipe = (recipe) => ({
 });
 
 export const startAddRecipe = (recipeData) => {
-  return (dispatch) => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
     const {
       title = '',
       prepTime = 0,
@@ -43,7 +45,7 @@ export const startAddRecipe = (recipeData) => {
     } = recipeData;
     const recipe = { title, prepTime, cookTime, serves, ingredients, method };
 
-    return database.ref('recipes').push(recipe).then((ref) => {
+    return database.ref(`users/${uid}/recipes`).push(recipe).then((ref) => {
       dispatch(addRecipe({
         id: ref.key,
         ...recipe
@@ -59,8 +61,9 @@ export const removeRecipe = ({ id } = {}) => ({
 });
 
 export const startRemoveRecipe = ({ id } = {}) => {
-  return (dispatch) => {
-    return database.ref(`recipes/${id}`).remove().then(() => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    return database.ref(`users/${uid}/recipes/${id}`).remove().then(() => {
       dispatch(removeRecipe({ id }));
     });
   };
@@ -74,8 +77,9 @@ export const editRecipe = (id, updates) => ({
 });
 
 export const startEditRecipe = (id, updates) => {
-  return (dispatch) => {
-    return database.ref(`recipes/${id}`).update(updates).then(() => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    return database.ref(`users/${uid}/recipes/${id}`).update(updates).then(() => {
       dispatch(editRecipe(id, updates));
     });
   };
