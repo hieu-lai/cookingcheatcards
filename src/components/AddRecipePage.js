@@ -10,7 +10,7 @@ import { startAddRecipe } from '../actions/recipes';
 class AddRecipePage extends React.Component {
   onSubmit = (recipe) => {
     this.props.startAddRecipe(recipe);
-    this.props.history.push('/');
+    this.props.history.push('/dashboard');
   };
   render() {
     return (

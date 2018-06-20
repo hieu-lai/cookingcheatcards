@@ -13,7 +13,7 @@ class Method extends React.Component {
   render() {
     return (
       <div>
-        <p>{this.props.method}</p>
+        <p>Step {this.props.stepNum}: {this.props.step}</p>
         <button 
           onClick={this.onMethodToRemove}
         >

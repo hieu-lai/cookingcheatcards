@@ -10,13 +10,13 @@ import { startEditRecipe, startRemoveRecipe } from '../actions/recipes';
 class EditRecipePage extends React.Component {
   onSubmit = (recipe) => {
     this.props.startEditRecipe(this.props.recipe.id, recipe);
-    this.props.history.push('/');
+    this.props.history.push('/dashboard');
   };
   
   onRemoveRecipe = () => {
     const id = this.props.recipe.id;
     this.props.startRemoveRecipe({ id });
-    this.props.history.push('/');
+    this.props.history.push('/dashboard');
   };
 
   render() {
