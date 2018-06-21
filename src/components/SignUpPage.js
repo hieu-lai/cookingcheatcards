@@ -1,8 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { startLogin, startLogInWithEmailAndPassword } from '../actions/auth';
+import isEmail from 'validator/lib/isEmail'; 
+import { startLogin, startSignUpWithEmailAndPassword } from '../actions/auth';
 
-class LoginPage extends React.Component {
+class SignUpPage extends React.Component {
+  state = {
+    errorEmail: '',
+    errorPassword: ''
+  };
   startLogin = (e) => {
     const authProvider = e.target.value;
     this.props.startLogin(authProvider);
@@ -12,7 +17,23 @@ class LoginPage extends React.Component {
 
     const email = e.target.elements.email.value;
     const password = e.target.elements.password.value;
-    this.props.startLogInWithEmailAndPassword(email, password);
+    if (!isEmail(email)) {
+      this.setState(() => ({ errorEmail: "Hmmm...that doesn't look like an email address."}))
+    } else {
+      this.setState(() => ({ errorEmail: ''}))
+    }
+    if (password.length < 6) {
+      this.setState(() => ({ errorPassword: 'Your password is too short! You need 6+ characters.'}))
+    } else {
+      this.setState(() => ({ errorPassword: ''}))
+    }
+    if (isEmail(email) && password.length >= 6) {
+      this.setState(() => ({
+        errorEmail: '',
+        errorPassword: ''
+      }));
+      this.props.startSignUpWithEmailAndPassword(email, password);
+    }
   };
   render() {
     return (
@@ -21,8 +42,10 @@ class LoginPage extends React.Component {
           <h1 className="box-layout__title">Boilerplate</h1>
           <p>Tag line for app.</p>
           <form onSubmit={this.onSubmit}>
-            <input type="email" name="email" />
+            <input type="text" name="email" />
+            {this.state.errorEmail && <p>{this.state.errorEmail}</p>}
             <input type="password" name="password" />
+            {this.state.errorPassword && <p>{this.state.errorPassword}</p>}
             <button>Continue</button>
           </form>  
           <button
@@ -47,7 +70,7 @@ class LoginPage extends React.Component {
 
 const mapDispatchToProps = (dispatch) => ({
   startLogin: (authProvider) => dispatch(startLogin(authProvider)),
-  startLogInWithEmailAndPassword: (email, password) => dispatch(startLogInWithEmailAndPassword(email, password))
+  startSignUpWithEmailAndPassword: (email, password) => dispatch(startSignUpWithEmailAndPassword(email, password))
 });
 
-export default connect(undefined, mapDispatchToProps)(LoginPage);
+export default connect(undefined, mapDispatchToProps)(SignUpPage);

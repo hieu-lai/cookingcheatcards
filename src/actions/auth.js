@@ -13,11 +13,23 @@ export const startLogin = (authProvider) => {
   return () => {
     if (authProvider === 'google') {
       return firebase.auth().signInWithPopup(googleAuthProvider);
-    } else if ( authProvider === 'facebook') {
+    } else if (authProvider === 'facebook') {
       return firebase.auth().signInWithPopup(facebookAuthProvider);
-    }    
+    }  
   };
 };
+
+export const startSignUpWithEmailAndPassword = (email, password) => {
+  return () => {
+    return firebase.auth().createUserWithEmailAndPassword(email, password);
+  }
+};
+
+export const startLogInWithEmailAndPassword = (email, password) => {
+  return () => {
+    return firebase.auth().signInWithEmailAndPassword(email, password);
+  }
+}
 
 export const logout = () => ({
   type: 'LOGOUT'
