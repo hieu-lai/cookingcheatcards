@@ -32,15 +32,21 @@ class SignUpPage extends React.Component {
         errorEmail: '',
         errorPassword: ''
       }));
-      this.props.startSignUpWithEmailAndPassword(email, password);
+      this.props.startSignUpWithEmailAndPassword(email, password)
+        .catch((error) => {
+          const errorCode = error.code;
+          if (errorCode === 'auth/email-already-in-use') {
+            this.setState(() => ({ errorEmail: "Deja vu! That email's taken. Forgot your password?"}))
+          }
+      });
     }
   };
   render() {
     return (
       <div className="box-layout">
         <div className="box-layout__box">
-          <h1 className="box-layout__title">Boilerplate</h1>
-          <p>Tag line for app.</p>
+          <h1 className="box-layout__title">Welcome to Cook's Cheat Cards</h1>
+          <p>Never forget favourite recipes.</p>
           <form onSubmit={this.onSubmit}>
             <input type="text" name="email" />
             {this.state.errorEmail && <p>{this.state.errorEmail}</p>}
