@@ -1,13 +1,45 @@
 .button {
-  background: $blue;
   border: none;
+  border-radius: 3px;
   color: white;
   display: inline-block;
-  font-size: $font-size-large;
-  font-weight: 300;
+  font-size: $font-size-medium;
+  font-weight: 500;
   line-height: 1;
   padding: $s-size;
   text-decoration: none;
+  width: 100%;
+}
+
+.button--red {
+  @extend .button;
+  background: $red;
+  margin: $m-size 0 0 0;
+  &:hover {
+    background: lighten($red, 10%);
+  }
+}
+
+.button--grey {
+  @extend .button;
+  background: $grey;
+  margin: $m-size 0 0 0; 
+}
+
+.button__social-media {
+  @extend .button;
+  align-items: center;
+  display: flex;
+  margin: 0 0 $xs-size 0;
+  padding: .5rem;
+}
+
+.button--google-blue {
+  background: $google-connect-button;
+}
+
+.button--facebook-blue {
+  background: $facebook-connect-button;
 }
 
 .button--link {
