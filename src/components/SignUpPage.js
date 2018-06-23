@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import isEmail from 'validator/lib/isEmail';
-import FacebookIcon from 'react-icons/lib/fa/facebook-square'; 
-import GoogleIcon from 'react-icons/lib/fa/google';
+import GoogleConnectButton from './GoogleConnectButton';
+import FacebookConnectButton from './FacebookConnectButton';
 import { startLogin, startSignUpWithEmailAndPassword } from '../actions/auth';
 
 class SignUpPage extends React.Component {
@@ -11,8 +11,7 @@ class SignUpPage extends React.Component {
     errorEmail: '',
     errorPassword: ''
   };
-  startLogin = (e) => {
-    const authProvider = e.target.value;
+  startLogin = (authProvider) => {
     this.props.startLogin(authProvider);
   };
   onSubmit = (e) => {
@@ -61,30 +60,14 @@ class SignUpPage extends React.Component {
               </div>
             </form> 
             <h5 className="box-layout__text">OR</h5> 
-            <button
-              className="button__social-media button--google-blue" 
-              value="google"
-              onClick={this.startLogin}
-            >
-              <div className="social-media__icon-wrapper">
-                <GoogleIcon size={30} />
-              </div>
-              <div className="social-media__text-wrapper">
-                Continue with Google
-              </div>
-            </button>
-            <button 
-              className="button__social-media button--facebook-blue" 
-              value="facebook"
+            <GoogleConnectButton 
               onClick={this.startLogin} 
-            >
-              <div className="social-media__icon-wrapper">
-                <FacebookIcon size={30} />
-              </div>
-              <div className="social-media__text-wrapper">
-                Continue with Facebook
-              </div>
-            </button>          
+              text="Continue with Google" 
+            />
+            <FacebookConnectButton 
+              onClick={this.startLogin} 
+              text="Continue with Facebook"
+            />          
             <Link className ="button--grey" to="/login">Log In</Link>
           </div>  
         </div>

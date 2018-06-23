@@ -2,17 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import isEmail from 'validator/lib/isEmail'; 
-import FacebookIcon from 'react-icons/lib/fa/facebook-square'; 
-import GoogleIcon from 'react-icons/lib/fa/google';
 import { startLogin, startLogInWithEmailAndPassword } from '../actions/auth';
+import GoogleConnectButton from './GoogleConnectButton';
+import FacebookConnectButton from './FacebookConnectButton';
 
 class LoginPage extends React.Component {
   state = {
     errorEmail: '',
     errorPassword: ''
   };
-  startLogin = (e) => {
-    const authProvider = e.target.value;
+  startLogin = (authProvider) => {
     this.props.startLogin(authProvider);
   };
   onSubmit = (e) => {
@@ -60,31 +59,15 @@ class LoginPage extends React.Component {
               {this.state.errorPassword && <p className="box-layout__error">{this.state.errorPassword}</p>}
               <button className="button--red">Log In</button>
             </form>  
-            <h5 className="box-layout__text">OR</h5> 
-            <button
-              className="button__social-media button--google-blue"
-              value="google"
-              onClick={this.startLogin}
-            >
-              <div className="social-media__icon-wrapper">
-                <GoogleIcon size={30} />
-              </div>
-              <div className="social-media__text-wrapper">
-                Log in with Google
-              </div>
-            </button>
-            <button 
-              className="button__social-media button--facebook-blue"
-              value="facebook"
-              onClick={this.startLogin}
-            >
-              <div className="social-media__icon-wrapper">
-                <FacebookIcon size={30} />
-              </div>
-              <div className="social-media__text-wrapper">
-                Log in with Facebook
-              </div>
-            </button>
+            <h5 className="box-layout__text">OR</h5>
+            <GoogleConnectButton 
+              onClick={this.startLogin} 
+              text="Log in with Google" 
+            />
+            <FacebookConnectButton 
+              onClick={this.startLogin} 
+              text="Log in with Facebook"
+            />
             <p className="box-layout__subtext">
               Don't have a Cook's Cheat Cards account?
               <span><Link className="box-layout__link" to="/">Sign Up!</Link></span>
