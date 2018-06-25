@@ -1,0 +1,62 @@
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  flex: 1;
+  margin: $s-size;
+  min-width: 25rem;
+  padding: $s-size;
+}
+
+.card__title {
+  border-bottom: 1px solid $dark-grey;
+  margin: $s-size 0 0 0;
+  padding: 0 0 $s-size 0;
+  text-align: center;
+}
+
+.card-info {
+  display: flex;
+  margin: $s-size 0;
+  justify-content: row;
+}
+
+.card-info__item {
+  flex: 1;
+  text-align: center;
+  h5 {
+    margin: 0;
+  }
+}
+
+.card-info__item--border {
+  border-left: 1px solid $dark-grey;
+  border-right: 1px solid $dark-grey;
+}
+
+.card-action {
+  @extend .card-info;
+  border-top: 1px solid $dark-grey;
+}
+
+.card-action__item {
+  cursor: pointer;
+  flex: 1;
+  padding: $s-size 0;
+  size: 32;
+  text-align: center;
+}
+
+.card-action__item--left {
+  border-right: 1px solid $dark-grey;
+  transition: background .5s ease;
+  &:hover {
+    background: lighten($green, 30%);
+  }
+}
+
+.card-action__item--right {
+  color: $dark-grey;
+  transition: background .5s ease;
+  &:hover {
+    background: lighten($dark-blue, 40%);
+  }
+}
