@@ -8,7 +8,10 @@ import applyFilters from '../selectors/recipes';
 
 const RecipesSummary = ({ totalRecipes, noOfFilteredRecipes }) => (
   <div>
-    <h1>Displaying {noOfFilteredRecipes} of {totalRecipes} recipies.</h1>
+    {
+      totalRecipes === noOfFilteredRecipes ? <h1>Displaying all recipes</h1> :
+      <h1>Dispalying {noOfFilteredRecipes} out of {totalRecipes} recipes.</h1>
+    }
   </div>
 );
 

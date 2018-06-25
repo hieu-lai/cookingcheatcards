@@ -1,5 +1,5 @@
 .header {
-  background: $dark-blue;
+  background: $red;
 }
 
 .header__content {
@@ -13,6 +13,11 @@
   color: white;
   text-decoration: none;
   h1 {
+    font-size: $font-size-heading-medium;
     margin: 0;
+
+    @media (min-width: $desktop-breakpoint) {
+      font-size: $font-size-heading-large;
+    }
   }
 }
