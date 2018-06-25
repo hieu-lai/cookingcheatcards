@@ -24,18 +24,25 @@ class RecipesFilters extends React.Component {
   };
   render() {
     return (
-      <div>
-        <input 
-          type="text"
-          placeholder="Search recipe or ingredient"
-          value={this.props.filters.text}
-          onChange={this.onTextChange}
-        />
-        <select onChange={this.onSelectChange}>
-          <option value="alphabetical">Alphabetical A-Z</option>
-          <option value="totalTime">Total time (acending)</option>
-          <option value="noOfPeople">No. of people (acending)</option>
-        </select>
+      <div className="content-container">
+        <div className="input-group">
+          <div className="input-group__item input-group__item-stretch">
+            <input
+              type="text"
+              className="text-input text-input--stretch"
+              placeholder="Search recipe or ingredient"
+              value={this.props.filters.text}
+              onChange={this.onTextChange}
+            />
+          </div>  
+          <div className="input-group__item">
+            <select className="select" onChange={this.onSelectChange}>
+              <option value="alphabetical">Alphabetical A-Z</option>
+              <option value="totalTime">Total time (acending)</option>
+              <option value="noOfPeople">No. of people (acending)</option>
+            </select>
+          </div>
+        </div>  
       </div>
     );
   };

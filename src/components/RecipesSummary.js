@@ -7,11 +7,13 @@ import { connect } from 'react-redux';
 import applyFilters from '../selectors/recipes';
 
 const RecipesSummary = ({ totalRecipes, noOfFilteredRecipes }) => (
-  <div>
-    {
-      totalRecipes === noOfFilteredRecipes ? <h1>Displaying all recipes</h1> :
-      <h1>Dispalying {noOfFilteredRecipes} out of {totalRecipes} recipes.</h1>
-    }
+  <div className="page-header">
+    <div className="content-container">
+      {
+        totalRecipes === noOfFilteredRecipes ? <h1 className="page-header__title">Displaying all recipes</h1> :
+        <h1 className="page-header__title">Dispalying {noOfFilteredRecipes} out of {totalRecipes} recipes.</h1>
+      }
+    </div>
   </div>
 );
 

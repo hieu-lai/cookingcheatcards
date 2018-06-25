@@ -6,6 +6,10 @@
   padding: $s-size;
 }
 
+.text-input--stretch {
+  width: 100%;
+}
+
 .text-input__credential {
   @extend .text-input;
   border-radius: 3px;
@@ -18,6 +22,8 @@
 
 .select {
   @extend .text-input;
+  font-size: $font-size-medium;
+  padding: 0 0 0 $s-size;
 }
 
 .textarea {

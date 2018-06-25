@@ -4,13 +4,18 @@
   margin-bottom: $m-size;
   @media (min-width: $desktop-breakpoint) {
     flex-direction: row;
+    justify-content: space-between;
     margin-bottom: $l-size;
   }
 }
 
 .input-group__item {
   margin-bottom: $s-size;
+}
+
+.input-group__item-stretch {
   @media (min-width: $desktop-breakpoint) {
-    margin: 0 $s-size 0 0;
+    flex: 1;
+    margin: 0 $m-size 0 0;
   }
 }
