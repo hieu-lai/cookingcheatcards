@@ -9,14 +9,17 @@
 .card__title {
   border-bottom: 1px solid $dark-grey;
   margin: $s-size 0 0 0;
-  padding: 0 0 $s-size 0;
+  overflow: hidden;
+  padding: 0 $xs-size $s-size $xs-size;
   text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .card-info {
-  display: flex;
-  margin: $s-size 0;
+  display: flex;  
   justify-content: row;
+  margin: $s-size 0;
 }
 
 .card-info__item {
@@ -59,4 +62,21 @@
   &:hover {
     background: lighten($dark-blue, 40%);
   }
+}
+
+.card-add {
+  @extend .card;
+  align-items: center;
+  color: $light-grey;
+  display: flex;
+  height: 21.7rem;
+  justify-content: center;
+  transition: color .5s ease;
+  &:hover {
+    color: $grey;
+  }
+}
+
+.card--invis {
+  box-shadow: none;
 }
