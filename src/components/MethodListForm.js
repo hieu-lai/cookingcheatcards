@@ -9,11 +9,11 @@ import Method from './Method';
 
 
 class MethodListForm extends React.Component {
-  render() {
+  render() { 
     return (
-      <div>
+      <div className="method-container">
         <h3>Method</h3>
-        {this.props.hasMethod === 0 && <p>Please provide at least one step.</p>}
+        {this.props.hasMethod === 0 && <p className="form__error">Please provide at least one step.</p>}
         {
           this.props.method.map((step, stepNum) => (
             <Method 
@@ -24,7 +24,10 @@ class MethodListForm extends React.Component {
             />
           ))
         }
-        <ListInputs onChange={this.props.onMethodAdd}/>
+        <ListInputs 
+          placeholder="Add each step here!"
+          onChange={this.props.onMethodAdd}
+        />
       </div>
     );
   };

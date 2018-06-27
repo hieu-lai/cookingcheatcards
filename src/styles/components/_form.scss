@@ -6,7 +6,29 @@
   }
 }
 
+.form--half-size {
+  @media (min-width: $desktop-breakpoint) {
+    width: 50%;
+  }
+  
+}
+
+.form__input-info {
+  margin: 0 0 $xs-size 0;
+}
+
 .form__error {
+  font-size: $font-size-small;
   margin: 0 0 $m-size 0;
   font-style: italic;
+}
+
+.form-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-info__item {
+  flex: 1;
+  padding: 0 $s-size 0 0;
 }

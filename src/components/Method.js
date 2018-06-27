@@ -3,22 +3,17 @@
 */
 
 import React from 'react';
+import RemoveIcon from 'react-icons/lib/fa/minus-circle';
 
 class Method extends React.Component {
   onMethodToRemove = (e) => {
-    e.preventDefault();
-
-    this.props.onMethodToRemove(this.props.method);
+    this.props.onMethodToRemove(this.props.step);
   }
   render() {
     return (
-      <div>
-        <p>Step {this.props.stepNum}: {this.props.step}</p>
-        <button 
-          onClick={this.onMethodToRemove}
-        >
-          Remove
-        </button>
+      <div className="method">
+        <p className="method__info">Step {this.props.stepNum}: {this.props.step}</p>
+        <RemoveIcon className="icon-remove" onClick={this.onMethodToRemove} />
       </div>
     )
   }

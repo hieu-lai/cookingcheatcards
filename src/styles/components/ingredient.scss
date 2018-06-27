@@ -1,0 +1,13 @@
+.ingredients-container {
+  flex: 1;
+}
+
+.ingredient {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ingredient__name {
+  margin: $xs-size 0;
+}

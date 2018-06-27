@@ -21,13 +21,21 @@ class EditRecipePage extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Edit recipe</h1>
-        <RecipeForm 
-          recipe={this.props.recipe}
-          onSubmit={this.onSubmit}
-        />
-        <button onClick={this.onRemoveRecipe}>Delete recipe</button>
+      <div>  
+        <div className="page-header">
+          <div className="content-container">
+            <h1 className="page-header__title">Edit recipe</h1>
+          </div>
+        </div>  
+        <div className="content-container">  
+          <RecipeForm 
+            recipe={this.props.recipe}
+            onSubmit={this.onSubmit}
+          />
+        </div>
+        <div className="content-container">  
+          <button className="button button--action button--delete" onClick={this.onRemoveRecipe}>Delete recipe</button>
+        </div>
       </div>
     );
   };

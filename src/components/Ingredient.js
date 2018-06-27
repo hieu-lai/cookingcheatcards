@@ -2,26 +2,21 @@
  * Renders ingredients on the add and edit recipe page.
 */
 
-import React from 'react';
+import React from 'react'; 
+import RemoveIcon from 'react-icons/lib/fa/minus-circle';
 
 class Ingredient extends React.Component {
-  onIngredientRemove = (e) => {
-    e.preventDefault();
-
+  onIngredientRemove = () => {
     this.props.onIngredientRemove(this.props.ingredient);
-  }
+  };
   render() {
     return (
-      <div>
-        <p>{this.props.ingredient}</p>
-        <button 
-          onClick={this.onIngredientRemove}
-        >
-          Remove
-        </button>
-      </div>
-    )
-  }
+        <div className="ingredient">
+          <p className="ingredient__name">&bull;&nbsp; {this.props.ingredient}</p>
+          <RemoveIcon className="icon-remove" onClick={this.onIngredientRemove} />
+        </div>
+    );
+  };
 };
 
 export default Ingredient;

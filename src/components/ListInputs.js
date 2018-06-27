@@ -1,4 +1,5 @@
 import React from 'react';
+import PlusIcon from 'react-icons/lib/fa/plus-circle';
 
 class ListInputs extends React.Component {
   state = {
@@ -24,12 +25,14 @@ class ListInputs extends React.Component {
       <div>
         <form onSubmit={this.onDataAdd}>
         <input 
+          className="text-input text-input--stretch"
           type="text"
+          placeholder={this.props.placeholder}
           value={this.state.data}
           onChange={this.onDataChange}
         />
-        <button>Add</button>
-        </form>
+        <PlusIcon className="icon-add" onClick={this.onDataAdd} />
+        </form> 
       </div>
     )
   }

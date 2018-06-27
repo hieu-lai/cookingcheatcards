@@ -14,19 +14,34 @@ class RecipesList extends React.Component {
   state = { 
     filler: []
   };
+
+  // Ensures all  the display cards are of same size depending on screen size
+  // and the amount of recipes shown at a time.
   fillTheGapFunc = () => { 
     const div = <div key={uuid()} className="card-add card--invis"></div>;
     let numOfRecipes = this.props.recipes.length;
     if (window.innerWidth >= 596 && window.innerWidth <= 870 && numOfRecipes%2 === 0) {
-      this.setState(() => ({ filler: [div] }));
+      this.setState(() => ({ 
+        filler: [<div key={uuid()} className="card-add card--invis"></div>] 
+      }));
     } else if (window.innerWidth > 871 && numOfRecipes%3-1 === 0) {
-      this.setState(() => ({ filler: [div] }));
+      this.setState(() => ({ 
+        filler: [<div key={uuid()} className="card-add card--invis"></div>] 
+      }));
     } else if (window.innerWidth > 871 && numOfRecipes%3 === 0) {
-      this.setState(() => ({ filler: [div, div] }));
+      this.setState(() => ({ 
+        filler: [
+          <div key={uuid()} className="card-add card--invis"></div>, 
+          <div key={uuid()} className="card-add card--invis"></div>
+        ] 
+    }));
     } else {
       this.setState(() => ({ filler: [] })); 
     }
   };  
+
+  // Run the function on mount and recalculates when window is resized or
+  // user inputs data.
   componentDidMount () {
     this.fillTheGapFunc();
     window.addEventListener('resize', this.fillTheGapFunc);
@@ -48,7 +63,6 @@ class RecipesList extends React.Component {
           </Link>          
           {this.state.filler.map(div => div)}
         </div>  
-        {console.log(this.state.filler)}
       </div>
     );
   };

@@ -11,9 +11,9 @@ import Ingredient from './Ingredient';
 class IngredientsListForm extends React.Component {
   render() {
     return (
-      <div>
+      <div className="ingredients-container">
         <h3>Ingredients</h3>
-        {this.props.hasIngredients === 0 && <p>Please provide at least one ingredient.</p>}
+        {this.props.hasIngredients === 0 && <p className="form__error">Please provide at least one ingredient.</p>}
         {
           this.props.ingredients.map((ingredient) => (
             <Ingredient 
@@ -23,7 +23,10 @@ class IngredientsListForm extends React.Component {
             />
           ))
         }
-        <ListInputs onChange={this.props.onChange}/>
+        <ListInputs 
+          placeholder="Add ingredient here!"
+          onChange={this.props.onChange}
+        />
       </div>
     );
   };

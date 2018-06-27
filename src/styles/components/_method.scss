@@ -1,0 +1,24 @@
+.method-container {
+  flex: 2;
+  @media (min-width: $desktop-breakpoint) {
+    padding: 0 0 0 $l-size;
+  } 
+}
+
+.method {
+  margin: 0 0 $m-size 0;
+  
+  @media (min-width: $desktop-breakpoint) {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.method__info {
+  margin: 0;
+
+  @media (min-width: $desktop-breakpoint) {
+    padding: 0 $s-size 0 0;
+  }
+}

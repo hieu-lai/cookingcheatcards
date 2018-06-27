@@ -26,6 +26,29 @@
   margin: $m-size 0 0 0; 
 }
 
+.button--green {
+  background: $green;
+  margin: $s-size 0 0 0;
+}
+
+.button--action {
+  margin: 0 0 $l-size 0;
+  padding: $m-size;
+
+  @media (min-width: $desktop-breakpoint) {
+    //float: right;
+    width: 25rem;
+  }
+}
+
+.button--blue {
+  background: $dark-blue;
+}
+
+.button--delete {
+  background: $error-red;
+}
+
 .button__social-media {
   @extend .button;
   align-items: center;
