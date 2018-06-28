@@ -11,7 +11,7 @@ const DashboardPage = (props) => (
   <div>
     <RecipesSummary />
     <RecipesFilters />
-    <RecipesList timestamp={new Date().toString()} />
+    <RecipesList  />
   </div>
 );
 

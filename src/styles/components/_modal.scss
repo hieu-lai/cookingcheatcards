@@ -26,6 +26,10 @@
   padding: $m-size $l-size;
   position: relative;
   width: 90vw;
+
+  @media (min-width: $desktop-breakpoint) {
+    padding: $l-size $l-size;
+  }
 }
 
 .modal__title {

@@ -47,6 +47,14 @@ class RecipesList extends React.Component {
     window.addEventListener('resize', this.fillTheGapFunc);
     window.addEventListener('keyup', this.fillTheGapFunc);
   };
+  
+  // Runs the function after inital mount. Function need to be called everytime
+  // user go through react-router Links.
+  componentDidUpdate (prevProps) {
+    if (this.props.recipes.length !== prevProps.recipes.length) {
+      this.fillTheGapFunc();
+    }
+  };
 
   componentWillUnmount () {
     window.removeEventListener('resize', this.fillTheGapFunc);
