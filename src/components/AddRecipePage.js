@@ -12,6 +12,11 @@ class AddRecipePage extends React.Component {
     this.props.startAddRecipe(recipe);
     this.props.history.push('/dashboard');
   };
+
+  componentDidMount () {
+    window.scrollTo(0, 0);
+  };
+  
   render() {
     return (
       <div>

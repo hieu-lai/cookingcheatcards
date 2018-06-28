@@ -19,6 +19,10 @@ class EditRecipePage extends React.Component {
     this.props.history.push('/dashboard');
   };
 
+  componentDidMount () {
+    window.scrollTo(0, 0);
+  };
+
   render() {
     return (
       <div>  
