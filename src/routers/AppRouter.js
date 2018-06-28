@@ -18,7 +18,9 @@ const AppRouter = () => (
       <Switch>
         <PublicRoute path="/" component={SignUpPage} exact={true} />
         <PublicRoute path="/login" component={LoginPage} />
-        <PrivateRoute path="/dashboard" component={DashboardPage} exact={true} />
+        <PrivateRoute path="/dashboard" component={(props) => (
+          <DashboardPage timestamp={new Date().toString()} {...props} />
+        )} exact={true} />        
         <PrivateRoute path="/create" component={AddRecipePage} />
         <PrivateRoute path="/edit/:id" component={EditRecipePage} />
         <Route component={NotFoundPage} />

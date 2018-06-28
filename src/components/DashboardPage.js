@@ -7,11 +7,11 @@ import RecipesSummary from './RecipesSummary';
 import RecipesFilters from './RecipesFilters';
 import RecipesList from './RecipesList';
 
-const DashboardPage = () => (
+const DashboardPage = (props) => (
   <div>
     <RecipesSummary />
     <RecipesFilters />
-    <RecipesList />
+    <RecipesList timestamp={new Date().toString()} />
   </div>
 );
 

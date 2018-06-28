@@ -16,3 +16,16 @@
     font-size: 4rem;
   }
 }
+
+.icon-close-modal {
+  color: $error-red;
+  cursor: pointer;
+  font-size: 3rem;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+
+  @media (min-width: $desktop-breakpoint) {
+    font-size: 4rem;
+  }
+}

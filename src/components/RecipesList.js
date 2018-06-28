@@ -47,7 +47,8 @@ class RecipesList extends React.Component {
     window.addEventListener('resize', this.fillTheGapFunc);
     window.addEventListener('keyup', this.fillTheGapFunc);
   };
-  componentWillMount () {
+
+  componentWillUnmount () {
     window.removeEventListener('resize', this.fillTheGapFunc);
     window.removeEventListener('keyup', this.fillTheGapFunc);
   };

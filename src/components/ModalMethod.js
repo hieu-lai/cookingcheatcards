@@ -5,7 +5,7 @@
 import React from 'react';
 
 const ModalMethod = ({ step, stepNum }) => (
-  <div>
+  <div className="modal-method">
     <h4>{`Step ${stepNum}`}</h4>
     <p>{step}</p>
   </div>
