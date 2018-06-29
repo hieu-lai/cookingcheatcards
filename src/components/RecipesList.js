@@ -45,7 +45,6 @@ class RecipesList extends React.Component {
   componentDidMount () {
     this.fillTheGapFunc();
     window.addEventListener('resize', this.fillTheGapFunc);
-    window.addEventListener('keyup', this.fillTheGapFunc);
   };
   
   // Runs the function after inital mount. Function need to be called everytime
@@ -58,7 +57,6 @@ class RecipesList extends React.Component {
 
   componentWillUnmount () {
     window.removeEventListener('resize', this.fillTheGapFunc);
-    window.removeEventListener('keyup', this.fillTheGapFunc);
   };
   render() {
     return (

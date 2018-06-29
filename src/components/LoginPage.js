@@ -49,6 +49,7 @@ class LoginPage extends React.Component {
     return (
       <div className="box-layout">
         <div className="box-layout__box">
+        <div className="icon-welcome"></div>
           <h1 className="box-layout__title">Log in to see your recipes</h1>
           <p className="box-layout__subtitle">It's time to cook.</p>
           <div className="box-layout__credential-wrapper">

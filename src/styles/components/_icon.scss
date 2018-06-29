@@ -29,3 +29,31 @@
     font-size: 4rem;
   }
 }
+
+.icon-dashboard {
+  background-image: url('/images/icon-white.png'); 
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 5rem;
+  width: 7rem;
+
+  @media (min-width: $desktop-breakpoint) { 
+    height: 8rem;
+    width: 12rem;
+  }
+}
+
+.icon-welcome {
+  background-image: url('/images/icon-red.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 11rem;
+  margin: 0 auto $l-size auto;
+  text-align: center;
+  width: 14rem;
+
+  @media (min-width: $desktop-breakpoint) { 
+    height: 8rem;
+    width: 10rem;
+  }
+}

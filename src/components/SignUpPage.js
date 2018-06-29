@@ -47,7 +47,8 @@ class SignUpPage extends React.Component {
     return (
       <div className="box-layout">
         <div className="box-layout__box">
-          <h1 className="box-layout__title">Welcome to Cook's Cheat Cards</h1>
+          <div className="icon-welcome"></div>
+          <h1 className="box-layout__title">Welcome!</h1>
           <p className="box-layout__subtitle">Never forget your favourite recipes.</p>
           <div className="box-layout__credential-wrapper">
             <form onSubmit={this.onSubmit}>
